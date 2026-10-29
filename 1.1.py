@@ -1,26 +1,32 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
 
 prefix = 'jj1.1'
 
 data = np.loadtxt(f"{prefix}.csv", skiprows = 1, delimiter = ',')
 
-from scipy.optimize import curve_fit
-
-def two_terms(x, a1, w1, f1, a2, w2, f2):
-    return a1 * np.sin(w1 * x + f1) + a2 * np.sin(w2 * x + f2)
+def two_terms(x, a1, f1, t1, a2, f2, t2):
+    return a1 * np.sin(2 * np.pi * f1 * x + t1) + a2 * np.sin(2 * np.pi * f2 * x + t2)
 
 
-initial_guesses = [3.0, 314.0, 0.0, 3.0, 345.0, 0.0]
-popt, pcov = curve_fit(two_terms, data[:,0], data[:,0], p0=initial_guesses)
+initial_guesses = [1.5, 100, 0.0, 1.5, 105, 0.0]
+popt, pcov = curve_fit(two_terms, data[:,0], data[:,1], p0=initial_guesses)
 
-# popt contains the optimized parameters [a, b, c]
-print("Optimized parameters:", popt)
+print("para frecuencias 1:1.05") 
+print(f"{popt[0]} sin (2 * pi * {popt[1]} * t + {popt[2]}) + {popt[3]} sin (2 * pi * {popt[4]} * t + {popt[5]})")
 
-# 4. Generate points for a smooth fit line
-x_fit = np.linspace(data[0,0], data[-1,0], 100)
-y_fit = two_terms(x_fit, *popt)
+y_fit = two_terms(data[:,0], *popt)
+
+y_err = 6e-3 * np.ones_like(data[:,0])
+residuals = data[:,1] - y_fit
+chisq = np.sum((residuals / y_err) ** 2)
+
+print(f"chi^2={chisq}")
 
 plt.plot(data[:,0], data[:,1])
-plt.plot(x_fit, y_fit)
+plt.plot(data[:,0], y_fit)
+
+plt.xlabel('Time (s)')
+plt.ylabel('CH1 (V)')
 plt.savefig(f"{prefix}.png")
