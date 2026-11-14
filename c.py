@@ -18,7 +18,7 @@ def four_terms(x, a1, f1, t1, a2, f2, t2, a3, f3, t3, a4, f4, t4):
 prefix = 'jjc'
 data = []
 for i in range(4):
-    data.append(np.loadtxt(f"{prefix}{i+1}.csv", skiprows = 1, delimiter = ','))
+    data.append(np.loadtxt(f"data/{prefix}{i+1}.csv", skiprows = 1, delimiter = ','))
 
 initial_guesses = [1.5, 100, 0.0]
 initial_guesses = curve_fit(one_term, data[0][:,0], data[0][:,1], p0=initial_guesses)[0]
@@ -28,7 +28,7 @@ plt.plot(data[0][:,0], data[0][:,1])
 plt.plot(data[0][:,0], y_fit)
 plt.xlabel('Time (s)')
 plt.ylabel('CH1 (V)')
-plt.savefig(f"{prefix}1.png")
+plt.savefig(f"res/{prefix}1.png")
 plt.cla()
 
 initial_guesses = np.append(initial_guesses, [1.5, 300, 0.0])
@@ -39,7 +39,7 @@ plt.plot(data[1][:,0], data[1][:,1])
 plt.plot(data[1][:,0], y_fit)
 plt.xlabel('Time (s)')
 plt.ylabel('CH1 (V)')
-plt.savefig(f"{prefix}2.png")
+plt.savefig(f"res/{prefix}2.png")
 plt.cla()
 
 initial_guesses = np.append(initial_guesses, [1.5, 500, 0.0])
@@ -50,7 +50,7 @@ plt.plot(data[2][:,0], data[2][:,1])
 plt.plot(data[2][:,0], y_fit)
 plt.xlabel('Time (s)')
 plt.ylabel('CH1 (V)')
-plt.savefig(f"{prefix}3.png")
+plt.savefig(f"res/{prefix}3.png")
 plt.cla()
 
 initial_guesses = np.append(initial_guesses, [1.5, 700, 0.0])
@@ -61,7 +61,7 @@ plt.plot(data[3][:,0], data[3][:,1])
 plt.plot(data[3][:,0], y_fit)
 plt.xlabel('Time (s)')
 plt.ylabel('CH1 (V)')
-plt.savefig(f"{prefix}4.png")
+plt.savefig(f"res/{prefix}4.png")
 
 print(initial_guesses)
 
