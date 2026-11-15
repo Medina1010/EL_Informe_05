@@ -24,8 +24,8 @@ particular utilizando su serie de Fourier. Las señales más convenientes para a
 en circuitos eléctricos son la señal cuadrada $C(t)$ y el diente de sierra $S(t)$, ambas
 con serie de Fourier
 \begin{align}
-	C(t) &= V\frac{4}{\pi}\sum_{n=0}^N \frac{\sin( (2n+1)\omega t  )}{2n+1} \\
-	S(t) &= V\frac{2}{\pi}\sum_{n=0}^N \frac{\sin(n\omega t)}{n}(-1)^n,
+	C(t) &= V\frac{4}{\pi}\sum_{n=0}^N \frac{\sin( (2n+1)\omega t  )}{2n+1}\label{eq:C} \\
+	S(t) &= V\frac{2}{\pi}\sum_{n=1}^N \frac{\sin(n\omega t)}{n}(-1)^{n-1},\label{eq:S}
 \end{align}
 hasta un término $N$.
 
