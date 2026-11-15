@@ -1,1 +1,37 @@
+Las señales eléctricas en un circuito electrónico se generan en forma de ondas
+progresivas, las cuales se modelan a partir de combinaciones lineales de funciones
+$\sin(\omega t)$ y $\cos(\omega t)$, para algún tiempo $t$ y frecuencia angular $\omega$.
+Dos señales puramente sinusoidales, coherentes, con misma amplitud $V$ y distinta
+frecuencia angular pueden escribirse como
+\begin{align*}
+	v_1(t) &= V\sin(\omega_1 t) \\
+	v_2(t) &= V\sin(\omega_2 t)
+\end{align*}
+y su superposición, $v_1(t)+v_2(t)$, puede transformarse utilizando identidades
+trigonométricas
+\begin{equation}\label{eq:super}
+	v(t) = 2V\sin\left( \frac{\omega_1+\omega_2}{2} t \right)
+			\cos\left( \frac{\omega_1-\omega_2}{2} t \right).
+\end{equation}
+Es posible identificar dos frecuencias en cada una de las fucnciones trigonométricas.
+El primero corresponde al promedio de las frecuencias originales y es la frecuencia
+más alta en la expresión. El segundo corresponde a la diferencia media de las
+frecuencias y puede interpretarse como la amplitud instantánea de la superposición.
 
+De forma similar, mediante múltiples superposiciones de ondas puramente sinusoidales,
+se puede aproximar de forma arbitraria cualquier curva $f(t)$ definida en un periodo
+particular utilizando su serie de Fourier. Las señales más convenientes para aproximar
+en circuitos eléctricos son la señal cuadrada $C(t)$ y el diente de sierra $S(t)$, ambas
+con serie de Fourier
+\begin{align}
+	C(t) &= V\frac{4}{\pi}\sum_{n=0}^N \frac{\sin( (2n+1)\omega t  )}{2n+1} \\
+	S(t) &= V\frac{2}{\pi}\sum_{n=0}^N \frac{\sin(n\omega t)}{n}(-1)^n,
+\end{align}
+hasta un término $N$.
+
+Dado que es posible generar las ondas progresivas mencionadas a través de
+señales eléctricas, se puede evidenciar experimentalmente sus formas funcionales y
+determinar las frecuencias angulares utilizadas. En ese sentido, en el presente informe
+se analizó la superposición de dos ondas sinusoidales y los términos principales de
+la onda cuadrada y de diente de sierra, con el fin de comprobar las relaciones matemáticas
+anteriormente presentadas.
