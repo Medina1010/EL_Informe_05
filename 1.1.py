@@ -24,7 +24,7 @@ chisq = np.sum((residuals / y_err) ** 2)
 
 print(f"chi^2={chisq}")
 
-plt.figure(figsize=(10,5), dpi=200)
+plt.figure(figsize=(12,4), dpi=200)
 plt.scatter(data[:,0], data[:,1], label="Datos Experimentales", s=1.5, color="blue")
 plt.plot(data[:,0], y_fit, label=f"Curva Ajustada\n$ω_1≈${popt[1]:.3f}, $ω_2≈${popt[4]:.3f}", lw=0.8, color="red")
 plt.legend()

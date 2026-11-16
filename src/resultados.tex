@@ -1,28 +1,45 @@
-A continuacion se presentan las graficas de la superposicion de dos ondas con una fecuencia relativa de 1.05, junto con la regresion de la superposicion por medio de minimos cuadrados.
-
+\end{multicols}
+En las Fig. \ref{fig:1.1} y \ref{fig:13} se muestran las curvas de superposición de dos
+ondas registradas en el osciloscópio, con frecuencias relativas de $1.05$ y $13$
+respectivamente. Además, se incluye la curva ajustada mediante el método de mínimos
+cuadrados y los valores experimentales de $\omega_1$ y $\omega_2$.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\linewidth]{res/jj1.1.png}
+	\caption{Superposición de dos ondas de \qty{100,00000}{\hertz} y \qty{105,00000}{\hertz}.
+	Los datos del osciloscópio corresponden a los puntos azules.}
+	\label{fig:1.1}
 \end{figure}
+%
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{res/jj13.png}
+	\caption{Superposición de dos ondas de \qty{100,00000}{\hertz} y \qty{1300,0000}{\hertz}.
+		Los datos del osciloscópio corresponden a los puntos azules.}
+	\label{fig:13}
+\end{figure}
+En las Tab. \ref{tab:1.1} y \ref{tab:13} se presenta
+
+
+
+
+\begin{multicols}{2}
 
 se presenta ademas los valores reportados por la regresion con sus respectivos errores:
 \begin{table}[H]
+	\centering
+	\caption{xd}
+	\label{tab:1.1}
 	\begin{tabular}{c|c|c|c}
 		frecuencia & valor teorico (Hz) & valor regresion (Hz) & error (\%) \\ \hline
 		$f_0$ & 100 & 100.00128612517261 & 0.00128612517261 \\
 		$f_1$ & 105 & 105.00217989423425 & 0.002076089746900661
 	\end{tabular}
 \end{table}  
-
-A continuacion se presentan las graficas de la superposicion de dos ondas con una fecuencia relativa de 13, junto con la regresion de la superposicion por medio de minimos cuadrados.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{res/jj13.png}
-\end{figure}
-
-se presenta ademas los valores reportados por la regresion con sus respectivos errores:
 \begin{table}[H]
+	\centering
+	\caption{xd}
+	\label{tab:13}
 	\begin{tabular}{c|c|c|c}
 		frecuencia & valor teorico (Hz) & valor regresion (Hz) & error (\%) \\ \hline
 		$f_0$ & 100 & 99.77636895729013 & 0.0032601125044318625 \\
