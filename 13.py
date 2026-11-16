@@ -15,6 +15,7 @@ popt, pcov = curve_fit(two_terms, data[:,0], data[:,1], p0=initial_guesses)
 
 print("para frecuencias 1:13")
 print(f"{popt[0]} sin (2 * pi * {popt[1]} * t + {popt[2]}) + {popt[3]} sin (2 * pi * {popt[4]} * t + {popt[5]}) + {popt[6]}")
+print(np.sqrt(np.diag(pcov)))
 
 y_fit = two_terms(data[:,0], *popt)
 

@@ -54,7 +54,7 @@ plt.savefig(f"res/{prefix}3.png")
 plt.cla()
 
 initial_guesses = np.append(initial_guesses, [1.5, 700, 0.0])
-initial_guesses = curve_fit(four_terms, data[3][:,0], data[3][:,1], p0=initial_guesses, maxfev=10000)[0]
+initial_guesses, pcov = curve_fit(four_terms, data[3][:,0], data[3][:,1], p0=initial_guesses, maxfev=10000)
 
 y_fit = four_terms(data[0][:,0], *initial_guesses)
 plt.plot(data[3][:,0], data[3][:,1])
@@ -64,6 +64,7 @@ plt.ylabel('CH1 (V)')
 plt.savefig(f"res/{prefix}4.png")
 
 print(initial_guesses)
+print(np.sqrt(np.diag(pcov)))
 
 y_err = 6e-3 * np.ones_like(data[3][:,0])
 residuals = data[3][:,1] - y_fit
